@@ -39,7 +39,7 @@ export default function TransactionAnalyzer() {
     formData.append("file", file);
     
     try {
-      const apiUrl = 'http://localhost:5000';
+      const apiUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000';
       // Use AI endpoint for PDF, simple endpoint for CSV
       const endpoint = isPDF ? '/api/upload-statement' : '/api/upload-csv-simple';
       

@@ -1,171 +1,257 @@
-# Welcome to your Lovable project
+# snapSpend - Smart Expense Tracker
 
-## Project info
+**Live Demo**: [Coming Soon - Deploy using guide below]
 
-**URL**: https://lovable.dev/projects/266ab390-37ad-4e92-98d4-191319f5ee51
+A full-stack financial management application with AI-powered insights, expense tracking, and smart categorization.
 
-## Features
+## 🚀 Quick Links
 
-This is a full-stack financial management application with:
+- **[Deployment Guide](DEPLOYMENT_STEPS.md)** - Step-by-step deployment to Vercel + Render
+- **[Environment Variables](ENV_VARIABLES_REFERENCE.md)** - Complete reference for all env vars
+- **[Deployment Checklist](DEPLOYMENT_CHECKLIST.md)** - Track your deployment progress
 
-### Existing Features
-- **Transaction Analyzer**: Upload CSV files to analyze and categorize transactions using AI
-- **Financial Chatbot**: Ask questions about your finances and get AI-powered advice
-- **Insights Dashboard**: View analytics and spending patterns
-- **Authentication**: Secure sign-in/sign-up with Supabase
+---
 
-### New: Expense Tracker (Hackathon Feature)
-- **Add Expenses**: Simple form to track daily expenses
-- **View All Expenses**: List of all expenses with details
-- **Total Calculation**: Real-time total of all expenses
-- **Filter by Category**: Bonus feature to filter expenses
-- **Full Stack**: Node.js + Express + MongoDB backend with React frontend
+## ✨ Features
 
-## Quick Start
+### Core Features
+- **Expense Tracker**: Add, view, and manage daily expenses
+- **Smart Categorization**: AI-powered transaction categorization using Google Gemini
+- **CSV/PDF Upload**: Upload bank statements for automatic expense import
+- **Financial Chatbot**: Get personalized financial advice and insights
+- **Analytics Dashboard**: View spending patterns, trends, and insights
+- **Premium Features**: Advanced analytics, budget planning, and reports (demo)
+
+### Technical Features
+- **MongoDB Authentication**: Secure JWT-based user authentication
+- **User Isolation**: Each user sees only their own data
+- **Mobile Responsive**: Fully responsive with mobile sidebar
+- **Real-time Updates**: Instant expense tracking and calculations
+- **AI Integration**: Google Gemini for categorization and chatbot
+
+---
+
+## 🛠️ Technologies
+
+- **Frontend**: React + TypeScript + Vite + Tailwind CSS + shadcn/ui
+- **Backend**: Node.js + Express
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: JWT + bcrypt
+- **AI**: Google Gemini API
+- **Charts**: Recharts
+- **File Upload**: Multer + pdf-parse
+
+---
+
+## 📦 Local Development Setup
 
 ### Prerequisites
 - Node.js (v16+)
-- MongoDB installed and running
+- MongoDB installed and running locally
 - npm or yarn
 
 ### Installation
 
-1. **Clone and install dependencies:**
+1. **Clone the repository:**
 ```sh
 git clone <YOUR_GIT_URL>
-cd <YOUR_PROJECT_NAME>
+cd snapspend
+```
+
+2. **Install frontend dependencies:**
+```sh
 npm install
 ```
 
-2. **Setup Backend:**
+3. **Install backend dependencies:**
 ```sh
 cd backend
 npm install
+cd ..
 ```
 
-3. **Configure Environment:**
-Create `backend/.env` file:
-```
+4. **Setup environment variables:**
+
+Create `backend/.env`:
+```env
 PORT=5000
 GEMINI_API_KEY=your_gemini_api_key_here
 MONGODB_URI=mongodb://localhost:27017/expense-tracker
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production-12345
+NODE_ENV=development
+FRONTEND_URL=http://localhost:8080
 ```
 
-4. **Start MongoDB:**
+5. **Start MongoDB:**
 ```sh
-# Windows: Start MongoDB service from Services
+# Windows: Start MongoDB service from Services app
 # Mac: brew services start mongodb-community
 # Linux: sudo systemctl start mongodb
 ```
 
-5. **Run the Application:**
+6. **Run the application:**
 
-Terminal 1 - Backend:
+**Option 1: Using batch files (Windows)**
 ```sh
+# Terminal 1 - Backend
+start-backend.bat
+
+# Terminal 2 - Frontend
+start-frontend.bat
+```
+
+**Option 2: Manual start**
+```sh
+# Terminal 1 - Backend
 cd backend
 npm start
-```
 
-Terminal 2 - Frontend:
-```sh
+# Terminal 2 - Frontend (from root)
 npm run dev
 ```
 
-6. **Access the Application:**
-- Frontend: http://localhost:5173
+7. **Access the application:**
+- Frontend: http://localhost:8080
 - Backend API: http://localhost:5000
 
-## Expense Tracker API
+---
 
-### POST /api/expenses
-Add a new expense
-```json
-{
-  "title": "Lunch",
-  "amount": 150,
-  "category": "Food",
-  "date": "2026-03-04"
-}
+## 🌐 Deployment
+
+### Deploy to Production (Free Tier)
+
+Follow our comprehensive deployment guide:
+
+1. **[Read DEPLOYMENT_STEPS.md](DEPLOYMENT_STEPS.md)** - Complete step-by-step guide
+2. **[Check ENV_VARIABLES_REFERENCE.md](ENV_VARIABLES_REFERENCE.md)** - All environment variables
+3. **[Use DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)** - Track your progress
+
+**Deployment Stack:**
+- Frontend: Vercel (Free)
+- Backend: Render.com (Free)
+- Database: MongoDB Atlas (Free)
+- **Total Cost: ₹0/month**
+
+**Deployment Time:** 30-45 minutes
+
+---
+
+## 📡 API Endpoints
+
+### Authentication
+- `POST /api/auth/signup` - Create new account
+- `POST /api/auth/signin` - Login
+- `GET /api/auth/me` - Get current user
+
+### Expenses
+- `POST /api/expenses` - Add new expense
+- `GET /api/expenses` - Get all user expenses
+- `DELETE /api/expenses/:id` - Delete expense
+
+### File Upload
+- `POST /api/upload-statement` - Upload PDF/CSV with AI categorization
+- `POST /api/upload-csv-simple` - Upload CSV with keyword categorization
+
+### Chatbot
+- `POST /api/chatbot/ask` - Ask financial questions
+
+---
+
+## 🎨 Project Structure
+
+```
+snapspend/
+├── backend/
+│   ├── models/          # MongoDB models (User, Expense)
+│   ├── routes/          # API routes
+│   ├── middleware/      # Auth middleware
+│   ├── utils/           # Utilities (CSV parser)
+│   └── server.js        # Express server
+├── src/
+│   ├── components/      # React components
+│   ├── pages/           # Page components
+│   ├── contexts/        # Auth context
+│   ├── lib/             # Utilities
+│   └── main.tsx         # Entry point
+├── public/              # Static assets
+└── deployment docs/     # Deployment guides
 ```
 
-### GET /api/expenses
-Fetch all expenses
+---
 
-See `EXPENSE_TRACKER_SETUP.md` for detailed setup instructions.
+## 🔐 Security
 
-## Technologies
+- JWT tokens with 7-day expiry
+- Bcrypt password hashing
+- User data isolation
+- CORS configuration
+- Environment variable protection
 
-- **Frontend**: Vite, TypeScript, React, shadcn-ui, Tailwind CSS
-- **Backend**: Node.js, Express
-- **Database**: MongoDB (Expense Tracker), Supabase (Authentication)
-- **AI**: Google Gemini API
+---
 
-## How can I edit this code?
+## 📱 Features Showcase
 
-There are several ways of editing your application.
+### Dashboard
+- Total expenses overview
+- Category breakdown
+- Recent transactions
+- Spending trends
 
-**Use Lovable**
+### Transaction Analyzer
+- Upload bank statements (PDF/CSV)
+- AI-powered categorization
+- Automatic expense import
+- Smart insights
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/266ab390-37ad-4e92-98d4-191319f5ee51) and start prompting.
+### Financial Chatbot
+- Ask about spending patterns
+- Get savings suggestions
+- Budget recommendations
+- Financial health tips
 
-Changes made via Lovable will be committed automatically to this repo.
+### Premium (Demo)
+- Advanced analytics
+- AI insights
+- Budget planning
+- Export reports
+- Recurring expenses
+- Priority support
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🤝 Contributing
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This is a hackathon project. Feel free to fork and customize!
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📄 License
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+MIT License - Feel free to use for your projects
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🎯 Hackathon Notes
 
-**Edit a file directly in GitHub**
+This project was built for a hackathon with these requirements:
+- ✅ MongoDB backend
+- ✅ Express API
+- ✅ React frontend
+- ✅ Full CRUD operations
+- ✅ Bonus features (filtering, AI, chatbot)
+- ✅ User authentication
+- ✅ Mobile responsive
+- ✅ Production deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📞 Support
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+For deployment help, check:
+1. [DEPLOYMENT_STEPS.md](DEPLOYMENT_STEPS.md) - Detailed guide
+2. [Troubleshooting section](DEPLOYMENT_STEPS.md#-common-issues--solutions)
+3. Service logs (Render/Vercel dashboards)
 
-## What technologies are used for this project?
+---
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-- Node.js & Express
-- MongoDB
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/266ab390-37ad-4e92-98d4-191319f5ee51) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Built with ❤️ for smart expense tracking**

@@ -12,7 +12,37 @@ require("dotenv").config({ path: "./.env" });
 let storedTransactions = [];
 const app = express();
 
-app.use(cors());
+// CORS configuration - allows both local and production URLs
+const allowedOrigins = [
+  'http://localhost:8080',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.FRONTEND_URL, // Will be set in production
+];
+
+// Add Vercel preview deployments pattern
+if (process.env.NODE_ENV === 'production') {
+  allowedOrigins.push(/\.vercel\.app$/);
+}
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    
+    // Check if origin is in allowed list
+    if (allowedOrigins.some(allowed => {
+      if (typeof allowed === 'string') return allowed === origin;
+      if (allowed instanceof RegExp) return allowed.test(origin);
+      return false;
+    })) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 
 // MongoDB Connection
