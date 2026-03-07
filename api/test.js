@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+export default (req, res) => {
   res.json({ 
     message: 'Vercel serverless function working!',
     env: {
