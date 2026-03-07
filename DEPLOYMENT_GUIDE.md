@@ -12,11 +12,15 @@
 ### Step 1: Create MongoDB Atlas Account
 1. Go to https://www.mongodb.com/cloud/atlas/register
 2. Sign up for free account
-3. Create a new cluster (choose FREE tier - M0)
-4. Choose cloud provider: AWS
-5. Choose region: Closest to you
-6. Cluster name: `snapspend-cluster`
-7. Click "Create Cluster" (takes 3-5 minutes)
+3. You'll see three deployment options:
+   - **Serverless** (pay as you go)
+   - **Dedicated** (paid)
+   - **Shared** (FREE) ← Choose this one!
+4. Click "Create" under the **Shared** (M0) option
+5. Choose cloud provider: AWS (recommended)
+6. Choose region: Closest to you (Mumbai/Singapore)
+7. Cluster name: `snapspend-cluster` (or leave default)
+8. Click "Create Deployment" or "Create Cluster" (takes 3-5 minutes)
 
 ### Step 2: Create Database User
 1. Go to "Database Access" (left sidebar)

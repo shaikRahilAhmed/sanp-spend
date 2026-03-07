@@ -26,13 +26,17 @@ Before starting, make sure you have:
 3. Choose "Free" tier when prompted
 
 ### 1.2 Create Your Cluster
-1. Click "Build a Database"
-2. Choose "M0 FREE" tier
-3. Select:
-   - Provider: AWS
+1. Click "Build a Database" or "+ Create"
+2. You'll see three deployment options:
+   - **Serverless** (pay as you go)
+   - **Dedicated** (paid)
+   - **Shared** (FREE) ← Choose this one!
+3. Click "Create" under the **Shared** (M0) option
+4. Select:
+   - Provider: AWS (recommended)
    - Region: Mumbai (ap-south-1) or closest to you
-4. Cluster Name: `snapspend-cluster`
-5. Click "Create Cluster" (takes 3-5 minutes)
+5. Cluster Name: `snapspend-cluster` (or leave default)
+6. Click "Create Deployment" or "Create Cluster" (takes 3-5 minutes)
 
 ### 1.3 Create Database User
 1. You'll see a security quickstart

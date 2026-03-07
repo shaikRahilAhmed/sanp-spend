@@ -8,17 +8,19 @@ This is the fastest way to get snapSpend live. Follow these exact steps.
 
 1. Go to: https://www.mongodb.com/cloud/atlas/register
 2. Sign up with Google
-3. Click "Build a Database" → Choose "M0 FREE"
-4. Click "Create"
-5. Username: `snapspend-admin`
-6. Click "Autogenerate Secure Password" → **COPY IT!**
-7. Click "Create User"
-8. Add IP: `0.0.0.0/0`
-9. Click "Finish and Close"
-10. Click "Connect" → "Connect your application"
-11. Copy the connection string
-12. Replace `<password>` with your password
-13. Add `/snapspend` before the `?`
+3. Click "Build a Database" → Choose **"Shared"** (FREE M0 tier)
+4. Click "Create" under Shared
+5. Provider: AWS, Region: Mumbai or closest
+6. Click "Create Deployment"
+7. Username: `snapspend-admin`
+8. Click "Autogenerate Secure Password" → **COPY IT!**
+9. Click "Create User"
+10. Add IP: `0.0.0.0/0`
+11. Click "Finish and Close"
+12. Click "Connect" → "Connect your application"
+13. Copy the connection string
+14. Replace `<password>` with your password
+15. Add `/snapspend` before the `?`
 
 **Save this:** `mongodb+srv://snapspend-admin:YOUR_PASSWORD@cluster.mongodb.net/snapspend?retryWrites=true&w=majority`
 

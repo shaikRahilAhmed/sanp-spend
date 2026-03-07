@@ -17,8 +17,13 @@ Use this checklist to track your deployment progress.
 ## Part 1: MongoDB Atlas (Database)
 
 - [ ] Created MongoDB Atlas account
-- [ ] Created M0 FREE cluster
-- [ ] Cluster name: `snapspend-cluster`
+- [ ] Clicked "Build a Database"
+- [ ] Selected **"Shared"** (M0 FREE) deployment option
+- [ ] Clicked "Create" under Shared
+- [ ] Selected AWS provider
+- [ ] Selected closest region
+- [ ] Cluster name: `snapspend-cluster` (or default)
+- [ ] Clicked "Create Deployment"
 - [ ] Created database user: `snapspend-admin`
 - [ ] Saved password securely
 - [ ] Added IP whitelist: `0.0.0.0/0`

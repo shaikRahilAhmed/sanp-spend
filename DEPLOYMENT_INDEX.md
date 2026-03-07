@@ -38,6 +38,14 @@ Welcome! This is your complete guide to deploying snapSpend. Choose the right do
 - How to get each value
 - Testing commands
 
+### MongoDB Atlas Setup (Updated 2026)
+**File**: [MONGODB_ATLAS_GUIDE.md](MONGODB_ATLAS_GUIDE.md)
+- **NEW!** Updated for current MongoDB Atlas interface
+- Step-by-step with current UI
+- Visual descriptions of what you'll see
+- Troubleshooting for common issues
+- **Use this if MongoDB Atlas interface looks different**
+
 ### Architecture Overview
 **File**: [ARCHITECTURE.md](ARCHITECTURE.md)
 - System architecture diagram
@@ -119,9 +127,10 @@ VITE_API_URL
 
 ### Reference Documents
 4. **ENV_VARIABLES_REFERENCE.md** - All environment variables
-5. **ARCHITECTURE.md** - System architecture & design
-6. **DEPLOYMENT_SUMMARY.md** - What changed & overview
-7. **DEPLOYMENT_INDEX.md** - This file (navigation)
+5. **MONGODB_ATLAS_GUIDE.md** - MongoDB setup (updated 2026 UI)
+6. **ARCHITECTURE.md** - System architecture & design
+7. **DEPLOYMENT_SUMMARY.md** - What changed & overview
+8. **DEPLOYMENT_INDEX.md** - This file (navigation)
 
 ### Project Documentation
 8. **README.md** - Project overview & local setup
@@ -136,6 +145,9 @@ VITE_API_URL
 
 ### "What environment variables do I need?"
 → [ENV_VARIABLES_REFERENCE.md](ENV_VARIABLES_REFERENCE.md)
+
+### "MongoDB Atlas interface looks different"
+→ [MONGODB_ATLAS_GUIDE.md](MONGODB_ATLAS_GUIDE.md) (Updated 2026)
 
 ### "How does the system work?"
 → [ARCHITECTURE.md](ARCHITECTURE.md)
