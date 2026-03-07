@@ -24,7 +24,7 @@ const ExpenseTrackerStandalone = () => {
   const [loading, setLoading] = useState(false);
   const [filterCategory, setFilterCategory] = useState('all');
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+  const API_URL = '/api';
 
   useEffect(() => {
     fetchExpenses();
