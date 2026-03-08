@@ -247,10 +247,9 @@ This project was built for a hackathon with these requirements:
 
 ## 📞 Support
 
-For deployment help, check:
-1. [DEPLOYMENT_STEPS.md](DEPLOYMENT_STEPS.md) - Detailed guide
-2. [Troubleshooting section](DEPLOYMENT_STEPS.md#-common-issues--solutions)
-3. Service logs (Render/Vercel dashboards)
+For deployment help, 
+can call or DM me 
+8790216891
 
 ---
 
