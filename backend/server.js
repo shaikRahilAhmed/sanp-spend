@@ -20,9 +20,10 @@ const allowedOrigins = [
   process.env.FRONTEND_URL, // Will be set in production
 ];
 
-// Add Vercel preview deployments pattern
+// Add Vercel and Render preview deployments pattern
 if (process.env.NODE_ENV === 'production') {
   allowedOrigins.push(/\.vercel\.app$/);
+  allowedOrigins.push(/\.onrender\.com$/);
 }
 
 app.use(cors({
@@ -38,7 +39,8 @@ app.use(cors({
     })) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.log('CORS blocked origin:', origin);
+      callback(null, true); // Allow all in production for now
     }
   },
   credentials: true
@@ -47,9 +49,14 @@ app.use(express.json());
 
 // MongoDB Connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/expense-tracker';
+console.log('Attempting to connect to MongoDB...');
+console.log('MongoDB URI:', MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, '//$1:****@')); // Hide password in logs
 mongoose.connect(MONGODB_URI)
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+  .then(() => console.log('✅ MongoDB connected successfully'))
+  .catch((err) => {
+    console.error('❌ MongoDB connection error:', err.message);
+    console.error('Full error:', err);
+  });
 
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello Saurabh from server!' });
